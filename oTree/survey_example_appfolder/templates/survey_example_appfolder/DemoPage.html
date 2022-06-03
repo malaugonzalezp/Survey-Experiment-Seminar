@@ -9,27 +9,31 @@
 <br>
 <h2> Survey Example </h2>
 <hr>
-This is a demo page
+Some information about you:
 
 <!-- This is the most basic way of implementing an input field -->
-{{ formfield "age_question"}}
+{{ formfield "please_state_your_age"}}
 
 <!-- This is the most basic way of implementing error handling -->
-{{ formfield_errors 'age_question' }}
+{{ formfield_errors 'please_state_your_age' }}
+
+{{ formfield "what_is_your_favorite_beverage"}}
 
 <!-- This is a more advances way of implementing a question -->
 <!-- the type says what kind of input "field" you would like, the name has to 
 be the same as on models.py and the value is what will be displayed in your dataset
 if the option is clicked -->
 
-<p><b>Which gender do you identify with?</b></p>
-<input type="radio" name="gender" value="1" /> Male
+<p><b>What is your favorite meal of the day?</b></p>
+<input type="radio" name="food" value="1" /> Breakfast
 <br>
-<input type="radio" name="gender" value="2" /> Female
+<input type="radio" name="food" value="2" /> Lunch
 <br>
-<input type="radio" name="gender" value="3" /> Divers
+<input type="radio" name="food" value="3" /> Dinner
 <br>
-<input type="radio" name="gender" value="4" /> Prefer not to say
+<input type="radio" name="food" value="4" /> Dessert
+<br>
+<input type="radio" name="food" value="5" /> Other
 <br>
 <br>
 

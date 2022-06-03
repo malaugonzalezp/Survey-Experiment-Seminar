@@ -9,7 +9,6 @@ from .models import Constants, Player
 
 class Welcome(Page):
     form_model = Player
-    form_fields = ['entry_question']
 
 #with the function before_next_page you can can control what should happen. It is a nice feature for filtering
 #or also setting variables
@@ -20,10 +19,7 @@ class Welcome(Page):
 
 class DemoPage(Page):
     form_model = Player
-    form_fields = ['age_question', 'gender', 'hidden_input']
-
-class Html_overview(Page):
-    form_model = Player
+    form_fields = ['please_state_your_age', 'what_is_your_favorite_beverage', 'food', 'hidden_input']
 
 class EndPage(Page):
     #style: this is a good example of the style 'CamelCase' that one normally uses for classes
@@ -32,5 +28,4 @@ class EndPage(Page):
 #Here we define in which ordering we want the pages to be shown. We always start with a Welcome page and end with an End page.
 page_sequence = [Welcome,
                 DemoPage,
-                Html_overview,
                 EndPage]
