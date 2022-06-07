@@ -1,4 +1,4 @@
-{% extends "global/Page.html" %}
+{% extends "global/GlobalWelcome.html" %}
 {% load otree static %}
 
 
@@ -6,6 +6,13 @@
 {% endblock %}
 
 {% block content %}
+
+<input id="device_type" type="hidden" name="device_type" />
+<input id="operating_system" type="hidden" name="operating_system" />
+<input id="screen_height" type="hidden" name="screen_height" />
+<input id="screen_width" type="hidden" name="screen_width" />
+
+
 <br>
 <h2> Survey Example </h2>
     <hr>

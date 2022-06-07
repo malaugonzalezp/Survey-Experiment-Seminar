@@ -1,10 +1,74 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends "global/GlobalPopout.html" %}
+{% load otree static %}
+
+{% block title %}
+{% endblock %}
+
+{% block scripts %}
+<script>
+    //Get variables needed for our popout
+    var hungryYes = document.getElementById('hungryYes');
+    var divYes = document.getElementById('divYes');
+    var hungryNo = document.getElementById('hungryNo');
+    var divNo = document.getElementById('divNo');
+
+    // POPOUT: we are going to create a popout function that displays text only if some value is given in another question
+    function popout() {
+        console.log('searching for the elements')
+        //the conditions and the implementation of showing the text
+        if (hungryYes.checked == true) {
+            console.log('yes');
+            divNo.style.display = "none";
+            divYes.style.display = "block";
+        }
+        if (hungryNo.checked == true) {
+            console.log('no');
+            divYes.style.display = "none";
+            divNo.style.display = "block";
+        }
+    }
+</script>
+{% endblock %}
+
+
+
+{% block content %}
+<!-- this is how we implement a time taking variable  -->
+<input id="time_popout" type="hidden" name="time_popout" />
+<br>
+<h2> Survey Example </h2>
+<hr>
+Testing popout questions and timestamps.
+
+
+<div>
+    <p><b>Are you hungry right now?</b></p>
+    <div><input id="hungryYes" type="radio" name="popout_question" value="1" onclick="popout()" /> Yes</div>
+    <div><input id="hungryNo" type="radio" name="popout_question" value="2" onclick="popout()" /> No</div>
+    <br>
+</div>
+
+<!-- question asked if they are hungry -->
+<div id="divYes" style="display: none">
+    <p>Are you going to eat?</p>
+    <input type="radio" name="popout_yes" value="1" /> Yes
+    <br>
+    <input type="radio" name="popout_yes" value="2" /> No
+    <br>
+    <input type="radio" name="popout_yes" value="3" /> Maybe
+    <br>
+</div>
+
+<!-- question asked if they aren't hungry -->
+<div id="divNo" style="display: none">
+    <p>Why?</p>
+    <input type="text" name="popout_no" />
+    <br>
+</div>
+
+<br>
+<button class="otree-btn-next btn btn-primary next-button otree-next-button">
+    Next
+</button>
+
+{% endblock %}
