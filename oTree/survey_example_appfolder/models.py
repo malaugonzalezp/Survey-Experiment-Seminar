@@ -45,6 +45,8 @@ class Group(BaseGroup):
 
 class Player(BasePlayer):
     # this is the most important feature of this file. We can collect all the variables used on the html pages here
+    screenout = models.BooleanField(initial=0)
+    quota = models.BooleanField(initial=0)
 
     # The Variables are structured on the base of pages
     # WelcomePage
@@ -52,10 +54,12 @@ class Player(BasePlayer):
     operating_system = models.IntegerField(initial=-999)
     screen_height = models.IntegerField(initial=-999)
     screen_width = models.IntegerField(initial=-999)
+    eligible_question = models.IntegerField()
+    gender = models.IntegerField(initial=-999, label='Gender Question')
     #HtmlPage
     duck = models.IntegerField(initial=-999)
     # DemoPage
-    please_state_your_age = models.IntegerField(max=110, min=1)  # we can also have max and min guidelines
+    please_state_your_age = models.IntegerField()  # we can also have max and min guidelines
     what_is_your_favorite_beverage = models.StringField(blank=True)  # this is an optional field through blank = True
     food = models.IntegerField(initial=-999)  # we can add an initial value
     hidden_input = models.IntegerField(initial=50, blank=True)
@@ -72,5 +76,5 @@ class Player(BasePlayer):
     # 1) be in the class Player (important to indent the right way)
     # 2) have a specific name "variablename"_error_message
     def age_question_error_message(player, value):
-        if value > 80:
+        if value > 40:
             return 'Age invalid. Please try again'
