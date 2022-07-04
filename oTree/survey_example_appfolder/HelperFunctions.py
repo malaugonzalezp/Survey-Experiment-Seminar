@@ -24,19 +24,16 @@ def detect_quota(self):
     if self.player.gender == 1:      # if participant is male
         if participant_number > 2:       # if more than 2 males participate
             self.player.quota = 1
-    return None
 
     if self.player.gender == 2:      # if participant is female
         if participant_number > 2:        # if more than 2 females participate
             self.player.quota = 1
-    return None
 
     if self.player.gender == 3:      # if participant is other
         if participant_number > 2:      # if more than 2 other participate
             self.player.quota = 1
-    return None
 
     if self.player.gender == 4:      # if participant is prefer not to say
         if participant_number > 2:      # if more than 2 participate
             self.player.quota = 1
-    return None
+
